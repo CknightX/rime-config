@@ -1,0 +1,13 @@
+---
+# encoding: utf-8
+# 总词典文件
+name: ckdict
+version: "1.0"
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - zrm2000  # 自然码
+...
+
+超级小桀
+西数
