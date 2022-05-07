@@ -68,7 +68,7 @@ speller:
     - abbrev/^(\w{2});\w{2}$/$1/  # 声码短语输入
 
 translator:
-  dictionary: ckdict
+  dictionary: ckpinyin
   prism: ck_pinyin
   preedit_format: # 默认情况下显示全拼
     - xform/(?<!;)([bpmnljqxy])n/$1in/
@@ -122,7 +122,7 @@ emoji_suggestion:
 # 载入custom_phrase自定义短语
 custom_phrase:
   dictionary: ""
-  user_dict: ckphrase
+  user_dict: ckpinyin.phrase
   db_class: tabledb
   enable_completion: false
   enable_sentence: false
@@ -142,7 +142,7 @@ reverse_lookup:
 
 # 导入符号表
 punctuator:
-  import_preset: cksymbols
+  import_preset: ckpinyin.symbols
 
 # 按键绑定
 key_binder:
