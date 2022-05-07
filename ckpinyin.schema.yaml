@@ -56,14 +56,16 @@ engine:
     
 speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba;"
-  delimiter: " '"
+  delimiter: "'"
   algebra:
-    # +++++无需分号即可输入形码+++++
     - derive/^(\w{2});(\w)(\w)$/$1$2$3/
     - derive/^(\w{2});(\w)(\w)$/$1$2/
     - derive/^(\w{2});(\w)(\w)$/$1/
-    # -----无需分号即可输入形码-----
-    - abbrev/^(\w{2});\w{2}$/$1/  # 音码短语输入
+    
+    - derive/^(\w{2});(\w)(\w)$/$1;$2/
+    
+    - abbrev/^(.).;\w{2}$/$1/  # 声码短语输入
+    - abbrev/^(\w{2});\w{2}$/$1/  # 声码短语输入
 
 translator:
   dictionary: ckdict

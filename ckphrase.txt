@@ -2,7 +2,7 @@
 #@/db_name	ckphrase.txt
 #@/db_type	tabledb
 #@/rime_version	1.5.3
-#@/tick	1
-baidu.com	baidu	1
+#@/tick	4
+baidu.com	baidu	4
 google.com	google	1
 yandex.com	yandex	2
