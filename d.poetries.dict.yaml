@@ -4,7 +4,7 @@
 # 搜狗历史词库
 # 古诗词名句【官方推荐】
 ---
-name: zrm.poetries
+name: d.poetries
 version: "2010-01-15"
 sort: by_weight
 ...

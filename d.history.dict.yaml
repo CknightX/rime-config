@@ -4,7 +4,7 @@
 # 搜狗历史词库
 # 中国历史词汇大全
 ---
-name: zrm.history
+name: d.history
 version: "0.1"
 sort: by_weight
 ...
