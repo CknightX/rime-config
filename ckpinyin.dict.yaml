@@ -7,6 +7,7 @@ sort: by_weight
 use_preset_vocabulary: true
 import_tables:
   - zrm2000  # 自然码
+  - sougou   # 搜狗细胞词库
 ...
 
 超级小桀
