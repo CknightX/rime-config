@@ -5,7 +5,8 @@ name: zrm2000
 version: "1.0"
 sort: by_weight
 use_preset_vocabulary: true
-# sort: original
+#sort: original
+max_phrase_length: 1
 ...
 一	yi;aa
 一	yi;hh

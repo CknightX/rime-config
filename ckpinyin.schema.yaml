@@ -56,47 +56,45 @@ engine:
     
 speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba;"
-  delimiter: "'"
+  delimiter: " '"
   algebra:
-    - derive/^(\w{2});(\w)(\w)$/$1$2$3/
-    - derive/^(\w{2});(\w)(\w)$/$1$2/
-    - derive/^(\w{2});(\w)(\w)$/$1/
-    - derive/^(\w{2});(\w)(\w)$/$1;$2/
+    - derive/^([a-z]{2});([a-z])([a-z])$/$1$2$3/
+    - derive/^([a-z]{2});([a-z])([a-z])$/$1$2/
+    - derive/^([a-z]{2});([a-z])([a-z])$/$1/
+    - abbrev/^([a-z]{2});[a-z]{2}$/$1/  # 声码短语输入
     
-    # 允许使用非自然码词库
+    # 允许使用全拼词库
     - derive/^([jqxy])u$/$1v/
     - derive/^([aoe])([ioun])$/$1$1$2/
-    - derive/^(\w*);(\w)$/$1;$2/
     - xform/^([aoe])(ng)?$/$1$1$2/
-    - xform/iu$/Q/
-    - xform/[iu]a$/W/
+    - xform/([^;])iu$/$1Q/
+    - xform/([^;])[iu]a$/$1W/
     - xform/[uv]an$/R/
-    - xform/[uv]e$/T/
+    - xform/([^;])[uv]e$/$1T/
     - xform/ing$|uai$/Y/
-    - xform/^sh/U/
-    - xform/^ch/I/
-    - xform/^zh/V/
-    - xform/uo$/O/
-    - xform/[uv]n$/P/
+    - xform/^sh([^;])/U$1/
+    - xform/^ch([^;])/I$1/
+    - xform/^zh([^;])/V$1/
+    - xform/([^;])uo$/$1O/
+    - xform/([^;])[uv]n$/$1P/
     - xform/i?ong$/S/
     - xform/[iu]ang$/D/
-    - xform/(.)en$/$1F/
+    - xform/([^;])en$/$1F/
     - xform/(.)eng$/$1G/
     - xform/(.)ang$/$1H/
     - xform/ian$/M/
-    - xform/(.)an$/$1J/
+    - xform/([^;])an$/$1J/
     - xform/iao$/C/
-    - xform/(.)ao$/$1K/
-    - xform/(.)ai$/$1L/
-    - xform/(.)ei$/$1Z/
-    - xform/ie$/X/
-    - xform/ui$/V/
-    - xform/(.)ou$/$1B/
-    - xform/in$/N/
+    - xform/([^;])ao$/$1K/
+    - xform/([^;])ai$/$1L/
+    - xform/([^;])ei$/$1Z/
+    - xform/([^;])ie$/$1X/
+    - xform/([^;])ui$/$1V/
+    - xform/([^;])ou$/$1B/
+    - xform/([^;])in$/$1N/
     - xlit/QWRTYUIOPSDFGHMJCKLZXVBN/qwrtyuiopsdfghmjcklzxvbn/
     
-    #- abbrev/^(.).;\w{2}$/$1/  # 声码短语输入
-    - abbrev/^(\w{2});\w{2}$/$1/  # 声码短语输入
+
 
 translator:
   dictionary: ckpinyin
@@ -134,12 +132,15 @@ translator:
     - "xform/(?<!;)(^|[ '])u/$1sh/"
     - xform/(?<!;)([jqxy])v/$1u/
     - xform/(?<!;)([nl])v/$1ü/
+  disable_user_dict_for_patterns: 
+    - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
+    - "^[a-z]{2};$"
 
 recognizer:
   import_preset: default
   patterns:
     punct: "^/([0-9]|[A-Za-z])*$"   # 每次输入字符都判断是否匹配该正则，不匹配则直接上屏
-    expression: "^=.*$"
+    expression: "^=.*$" # 用于lua求值器
     reverse_lookup: "`[a-z]*'?$"
 
 
