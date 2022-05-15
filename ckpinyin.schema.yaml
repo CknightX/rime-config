@@ -58,12 +58,19 @@ speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba;"
   delimiter: " '"
   algebra:
+    # 允许不输入；即可使用辅码
+    # ps：当键入的是经过derive的编码时，将无法出现辅码提示
     - derive/^([a-z]{2});([a-z])([a-z])$/$1$2$3/
-    - derive/^([a-z]{2});([a-z])([a-z])$/$1$2/
-    - derive/^([a-z]{2});([a-z])([a-z])$/$1/
+    - derive/^([a-z]{2});([a-z])[a-z]$/$1$2/
+    - derive/^([a-z]{2});[a-z]{2}$/$1/
+    # 同时键入多个字时，允许除第一个字以外的字使用辅码
+    - derive/^([a-z]{2});([a-z])([a-z])$/$1;$2$3/
+    - derive/^([a-z]{2});([a-z])[a-z]$/$1;$2/
+    # 暂时没发现有啥用:(
     - abbrev/^([a-z]{2});[a-z]{2}$/$1/  # 声码短语输入
     
     # 允许使用全拼词库
+    # 思想是将词语对应的编码全部替换为自然码对应的编码
     - derive/^([jqxy])u$/$1v/
     - derive/^([aoe])([ioun])$/$1$1$2/
     - xform/^([aoe])(ng)?$/$1$1$2/
