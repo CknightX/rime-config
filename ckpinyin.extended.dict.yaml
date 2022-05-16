@@ -15,5 +15,7 @@ import_tables:
   - d.poetries # 古诗词
   - d.seiyuu   # 声优词库
   - d.cs       # 计算机相关名词
+  - d.GuTaoWa_9wan    # 古陶瓦
+  - d.LuoHaiHuan_base # 罗海环
 
 ...
