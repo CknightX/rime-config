@@ -4,7 +4,7 @@
 name: ckpinyin
 version: "1.0"
 sort: by_weight
-use_preset_vocabulary: true
+use_preset_vocabulary: false # 使用八股文
 import_tables:
   - d.zrm2000  # 自然码（基础码表）
   - d.sougou   # 搜狗细胞
@@ -12,6 +12,7 @@ import_tables:
   - d.history  # 历史
   - d.poetries # 古诗词
   - d.senyuu   # 声优词库
+  - d.cs       # 计算机相关名词
 ...
 
 超级小桀
