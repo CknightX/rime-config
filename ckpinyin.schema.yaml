@@ -45,8 +45,7 @@ engine:
     - reverse_lookup_translator
     - script_translator # 拼音翻译器
     - table_translator@custom_phrase # 定义一个自定义短语子翻译器
-    - table_translator@xm # 形码翻译器
-#    - table_translator
+    - table_translator
     - lua_translator@datetime_translator
     - lua_translator@calc_translator
     - lua_translator@cmd_translator
@@ -107,21 +106,10 @@ translator:
   dictionary: ckpinyin
   prism: ck_pinyin
   preedit_format: 
-    - "xform/^/〔拼〕/" # 提示字输入模式
+
   disable_user_dict_for_patterns: 
     - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
     - "^[a-z]{2};$"
-  initial_quality: 0.5
-# 形码翻译器
-xm:
-  dictionary: ckpinyin
-  prism: ck_pinyin
-  preedit_format: 
-    - "xform/^/〔形〕/" # 提示字输入模式
-  disable_user_dict_for_patterns: 
-    - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
-    - "^[a-z]{2};$"
-  initial_quality: 1
 
 
 recognizer:
