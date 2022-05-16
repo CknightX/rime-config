@@ -101,10 +101,11 @@ speller:
     - xform/([^;])in$/$1N/
     - xlit/QWRTYUIOPSDFGHMJCKLZXVBN/qwrtyuiopsdfghmjcklzxvbn/
     
-# 拼音翻译器
+# 翻译器
 translator:
   dictionary: ckpinyin
   prism: ck_pinyin
+  enable_sentence: false  # 关闭自动组句
   preedit_format: 
 
   disable_user_dict_for_patterns: 

@@ -3,7 +3,7 @@
 # 总词典文件
 name: ckpinyin
 version: "1.0"
-sort: by_weight
+sort: original
 use_preset_vocabulary: false # 使用八股文
 import_tables:
   - d.zrm2000  # 自然码（基础码表）
@@ -11,7 +11,7 @@ import_tables:
   - d.acg      # ACG
   - d.history  # 历史
   - d.poetries # 古诗词
-  - d.senyuu   # 声优词库
+  - d.seiyuu   # 声优词库
   - d.cs       # 计算机相关名词
 ...
 
