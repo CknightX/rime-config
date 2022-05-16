@@ -58,14 +58,14 @@ speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba;"
   delimiter: " '"
   algebra:
-    # 允许不输入；即可使用辅码
+    # 允许不输入；即可使用辅码（无辅码提示）
     # ps：当键入的是经过derive的编码时，将无法出现辅码提示
     - derive/^([a-z]{2});([a-z])([a-z])$/$1$2$3/
     - derive/^([a-z]{2});([a-z])[a-z]$/$1$2/
     - derive/^([a-z]{2});[a-z]{2}$/$1/
-    # 同时键入多个字时，允许除第一个字以外的字使用辅码
+    # 同时键入多个字时，允许除第一个字以外的字使用带；提示的辅码
     - derive/^([a-z]{2});([a-z])([a-z])$/$1;$2$3/
-    - derive/^([a-z]{2});([a-z])[a-z]$/$1;$2/
+#    - derive/^([a-z]{2});([a-z])[a-z]$/$1;$2/   # 注释后打多个字时必须将完整形码打出才能出字，不注释的话将不能完整提示形码，只能提示第一个
     # 声码短语输入
     - abbrev/^([a-z]{2});[a-z]{2}$/$1/  
     
@@ -103,8 +103,8 @@ speller:
     
 # 翻译器
 translator:
-  dictionary: ckpinyin
-  prism: ck_pinyin
+  dictionary: ckpinyin.extended
+  prism: ckpinyin
   enable_sentence: false  # 关闭自动组句
   preedit_format: 
 

@@ -4,7 +4,6 @@
 name: d.seiyuu
 version: "1.0"
 sort: original
-use_preset_vocabulary: true # 使用八股文
 ...
 阿部敦	a bu dun	1
 阿澄佳奈	a cheng jia nai	1

@@ -1,0 +1,19 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 扩展词库
+# 不需要的词库请注释掉
+---
+name: ckpinyin.extended
+version: "0.1"
+sort: by_weight
+import_tables:
+  - d.zrm   # 基础码表
+  - d.sougou   # 搜狗细胞
+  - d.acg      # ACG
+  - d.history  # 历史
+  - d.poetries # 古诗词
+  - d.seiyuu   # 声优词库
+  - d.cs       # 计算机相关名词
+
+...
