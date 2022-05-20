@@ -17,5 +17,6 @@ import_tables:
   - d.cs       # 计算机相关名词
   - d.GuTaoWa_9wan    # 古陶瓦
   - d.LuoHaiHuan_base # 罗海环
+  - d.zhwiki # 中文维基百科
 
 ...
