@@ -2,7 +2,7 @@
 #@/db_name	ckpinyin.phrase.txt
 #@/db_type	tabledb
 #@/rime_version	1.5.3
-#@/tick	0
-baidu.com	baidu	4
+#@/tick	1
+baidu.com	baidu	5
 google.com	google	1
 yandex.com	yandex	2

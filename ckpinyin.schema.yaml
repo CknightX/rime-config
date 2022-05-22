@@ -45,7 +45,7 @@ engine:
     - reverse_lookup_translator
     - script_translator # 拼音翻译器
     - table_translator@custom_phrase # 定义一个自定义短语子翻译器
-    - table_translator
+    - table_translator@xm # 打单时提示形码
     - lua_translator@datetime_translator
     - lua_translator@calc_translator
     - lua_translator@cmd_translator
@@ -107,16 +107,30 @@ translator:
   prism: ckpinyin
   enable_sentence: false  # 关闭自动组句
   preedit_format: 
-
+    - "xform/^/〔拼〕/" # 提示字输入模式
   disable_user_dict_for_patterns: 
     - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
     - "^[a-z]{2};$"
-
+  initial_quality: 1000 # 高优先级，优先使用拼音，保证单字输入顺序与字典中所定义的权重一致
+  
+# 形码提示table_translator
+xm:
+  dictionary: ckpinyin.extended
+  prism: ckpinyin
+  enable_sentence: false  # 关闭自动组句
+  preedit_format: 
+    - "xform/^/〔形〕/" # 提示字输入模式
+  disable_user_dict_for_patterns: 
+    - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
+    - "^[a-z]{2};$"
+  initial_quality: 1 # 低优先级，仅在单字输入时输入;后使用该翻译器，仅用于进行单字的形码提示
+  # 若此translator优先级过高，则单字输入将使用该translator，导致的结果是码表中对于单字的权重定义失效
+  # table_translator在未输入全码时，无法根据weight排序
 
 recognizer:
   import_preset: default
   patterns:
-    punct: "^/([0-9]|[A-Za-z])*$"   # 每次输入字符都判断是否匹配该正则，不匹配则直接上屏
+    punct: "^/([0-9]|[A-Za-z])*$" #每次输入字符都判断是否匹配该正则，不匹配则直接上屏
     expression: "^=.*$" # 用于lua求值器
     reverse_lookup: "`[a-z]*'?$"
 
