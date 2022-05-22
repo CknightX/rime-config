@@ -53,7 +53,7 @@ engine:
     - simplifier@emoji_suggestion # 添加emoji支持
     - simplifier
     - uniquifier
-    
+
 speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba;"
   delimiter: " '"
@@ -65,10 +65,10 @@ speller:
     - derive/^([a-z]{2});[a-z]{2}$/$1/
     # 同时键入多个字时，允许除第一个字以外的字使用带；提示的辅码
     - derive/^([a-z]{2});([a-z])([a-z])$/$1;$2$3/
-#    - derive/^([a-z]{2});([a-z])[a-z]$/$1;$2/   # 注释后打多个字时必须将完整形码打出才能出字，不注释的话将不能完整提示形码，只能提示第一个
+    #- derive/^([a-z]{2});([a-z])[a-z]$/$1;$2/   # 注释后打多个字时必须将完整形码打出才能出字，不注释的话将不能完整提示形码，只能提示第一个
     # 声码短语输入
     - abbrev/^([a-z]{2});[a-z]{2}$/$1/  
-    
+
     # 允许使用全拼词库
     # 思想是将词语对应的编码全部替换为自然码对应的编码
     - derive/^([jqxy])u$/$1v/
@@ -100,7 +100,10 @@ speller:
     - xform/([^;])ou$/$1B/
     - xform/([^;])in$/$1N/
     - xlit/QWRTYUIOPSDFGHMJCKLZXVBN/qwrtyuiopsdfghmjcklzxvbn/
-    
+    # 避免被错误xform的特殊包裹符号@
+    # 使用@包裹起来的码将不会被上述xform修改，同时会被下面的语句恢复
+    - xform/^@(.+)@$/$1/
+
 # 翻译器
 translator:
   dictionary: ckpinyin.extended
@@ -111,7 +114,7 @@ translator:
   disable_user_dict_for_patterns: 
     - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
     - "^[a-z]{2};$"
-  initial_quality: 1000 # 高优先级，优先使用拼音，保证单字输入顺序与字典中所定义的权重一致
+  initial_quality: 1 # 高优先级，优先使用拼音，保证单字输入顺序与字典中所定义的权重一致
   
 # 形码提示table_translator
 xm:
@@ -123,7 +126,7 @@ xm:
   disable_user_dict_for_patterns: 
     - "^[a-z]{1,2}$"  #二码及以下不使用自动调频、不自动造词（避免单字输入与词组冲突）（缺点是单字无法调频）
     - "^[a-z]{2};$"
-  initial_quality: 1 # 低优先级，仅在单字输入时输入;后使用该翻译器，仅用于进行单字的形码提示
+  initial_quality: 0.75 # 低优先级，仅在单字输入时输入;后使用该翻译器，仅用于进行单字的形码提示
   # 若此translator优先级过高，则单字输入将使用该translator，导致的结果是码表中对于单字的权重定义失效
   # table_translator在未输入全码时，无法根据weight排序
 
