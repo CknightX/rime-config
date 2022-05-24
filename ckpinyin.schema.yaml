@@ -150,10 +150,10 @@ custom_phrase:
   dictionary: ""
   user_dict: ckpinyin.phrase
   db_class: tabledb
-  enable_completion: false
+  enable_completion: true
   enable_sentence: false
   initial_quality: 1
-  preedit_format: # 默认情况下显示全拼
+  preedit_format: 
     - "xform/^/〔短语〕/" # 提示字输入模式
 
 # 笔画反查功能
