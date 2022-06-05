@@ -2,8 +2,8 @@
 #@/db_name	ckpinyin.phrase.txt
 #@/db_type	tabledb
 #@/rime_version	1.5.3
-#@/tick	91
-baidu.com	baidu	73
+#@/tick	109
+baidu.com	baidu	91
 bilibili.com	bilibili	2
 galgame	galgame	10
 google.com	google	2
