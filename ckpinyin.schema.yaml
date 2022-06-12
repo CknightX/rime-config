@@ -77,18 +77,18 @@ speller:
     - xform/[uv]n$/P/
     - xform/i?ong$/S/
     - xform/[iu]ang$/D/
-    - xform/en$/F/
+    - xform/(.)en$/$1F/
     - xform/(.)eng$/$1G/
     - xform/(.)ang$/$1H/
     - xform/ian$/M/
-    - xform/an$/J/
+    - xform/(.)an$/$1J/
     - xform/iao$/C/
-    - xform/ao$/K/
-    - xform/ai$/L/
-    - xform/ei$/Z/
+    - xform/(.)ao$/$1K/
+    - xform/(.)ai$/$1L/
+    - xform/(.)ei$/$1Z/
     - xform/ie$/X/
     - xform/ui$/V/
-    - xform/ou$/B/
+    - xform/(.)ou$/$1B/
     - xform/in$/N/
     - xlit/QWRTYUIOPSDFGHMJCKLZXVBN/qwrtyuiopsdfghmjcklzxvbn/
     # 去除所有@

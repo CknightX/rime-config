@@ -2,12 +2,12 @@
 #@/db_name	ckpinyin.phrase.txt
 #@/db_type	tabledb
 #@/rime_version	1.5.3
-#@/tick	109
-baidu.com	baidu	91
+#@/tick	158
+baidu.com	baidu	139
 bilibili.com	bilibili	2
 galgame	galgame	10
 google.com	google	2
 pixiv.net	pixiv	1
-https://bbs.saraba1st.com/2b/forum-75-1.html	stage	6
+https://bbs.saraba1st.com/2b/forum-75-1.html	stage	7
 yandex.com	yandex	2
 youtube.com	youtube	2
